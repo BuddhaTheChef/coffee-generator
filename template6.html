@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Starlucks Coffee</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<body style="background-color: rgb(37,37,37)">
+    <h1 style="color: whitesmoke; text-align: center; margin-top: 70px;">Starlucks Coffee</h1>
+    <div style="display: flex; align-items: center; justify-content: space-around; width: 70%; margin: 65px auto 50px auto;">
+    <p><button type="button" class="btn btn-success"><a href="?myDay=0" style="color: white; text-decoration: none;">Sunday Special</a></button></p>
+    <p><button type="button" class="btn btn-success"><a href="?myDay=1" style="color: white; text-decoration: none;">Monday Special</a></button></p>
+    <p><button type="button" class="btn btn-success"><a href="?myDay=2" style="color: white; text-decoration: none;">Tuesday Special</a></button></p>
+    <p><button type="button" class="btn btn-success"><a href="?myDay=3" style="color: white; text-decoration: none;">Wednesday Special</a></button></p>
+    <p><button type="button" class="btn btn-success"><a href="?myDay=4" style="color: white; text-decoration: none;">Thursday Special</a></button></p>
+    <p><button type="button" class="btn btn-success"><a href="?myDay=5" style="color: white; text-decoration: none;">Friday Special</a></button></p>
+    <p><button type="button" class="btn btn-success"><a href="?myDay=6" style="color: white; text-decoration: none;">Saturday Special</a></button></p>
+    <p><button type="button" class="btn btn-success"><a href="?" style="color: white; text-decoration: none;">Today's Special</a></button></p>
+</div>
+
+    <span id="output"></span>
+</body>
+<script>
+
+    let coffee = '';
+    let myDate = new Date();
+    let myDay = myDate.getDay();
+
+    console.log(myDay)
+
+//  myDay = 1;
+
+//grab data from qstring
+const queryString = window.location.search;
+
+console.log(queryString);
+
+const urlParams = new URLSearchParams(queryString);
+
+console.log(urlParams);
+
+if(urlParams.has('myDay')) {
+    let myColor = urlParams.get('myDay');
+    if(myColor == 0) {
+        alert('Sunday\'s special is Pumkin Spice')
+    }
+    if(myColor == 1) {
+        alert('Monday\'s special is Mocha')
+    }
+    else if(myColor == 2) {
+        alert('Tuesday\'s special is Dark Chocolate Latté')
+    }
+    else if(myColor == 3) {
+        alert('Wednesday\'s special is Americanó')
+    }
+    else if(myColor == 4) {
+        alert('Thursday\'s special is Carmel Machiatto')
+    }
+    else if(myColor == 5) {
+        alert('Friday\'s special is Cold Brew Coffee')
+    }
+    else if(myColor == 6) {
+        alert('Saturday\'s special is Espresso')
+    }
+} else {
+    alert('Today\'s special is listed below' )
+}
+
+
+switch(myDay) {
+    case 0: 
+    coffee = {
+            pic: 'https://images.unsplash.com/photo-1501609871822-c08d4ce72996?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80',
+            alt: 'Pumkin Spice',
+            name: 'Pumpkin Spice',
+            color: 'coral',
+            day: 'Sunday\'s',
+            desc: `special is Pumpkin Spice!`
+        };
+    break;
+    case 1:
+        coffee = {
+            pic: 'https://images.unsplash.com/photo-1475759697283-38cc56e4455a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80',
+            alt: 'Mocha',
+            name: 'Mocha',
+            color: 'brown',
+            day: 'Monday\'s',
+            desc: `Full of Chocolatey Goodness!`
+        };
+    break;
+    case 2:
+        coffee = {
+            pic: 'https://images.unsplash.com/photo-1460865332492-81fd69fc5996?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80',
+            alt: 'Dark Chocolate Latté',
+            name: 'Dark Chocolate Latté',
+            color: 'blue',
+            day: 'Tuesday\'s',
+            desc: `special is Dark Chocolate Latté!`
+        };
+    break;
+    case 3:
+        coffee = {
+            pic: 'https://images.unsplash.com/photo-1497515114629-f71d768fd07c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2562&q=80',
+            alt: 'Americanó',
+            name: 'Americanó',
+            color: 'Black',
+            day: 'Wednesday\'s',
+            desc: `special is Americanó!`
+        };
+    break;
+    case 4:
+    coffee = {
+            pic: 'https://images.unsplash.com/photo-1497935586351-b67a49e012bf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3302&q=80',
+            alt: 'Carmel Machiatto',
+            name: 'Carmel Machiatto',
+            color: 'tan',
+            day: 'Thursday\'s',
+            desc: `special is Carmel Machiatto!`
+        };
+    break;
+    case 5:
+    coffee = {
+            pic: 'https://images.unsplash.com/photo-1461023058943-07fcbe16d735?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80',
+            alt: 'Cold Brew Coffee',
+            name: 'Cold Brew Coffee',
+            color: 'brown',
+            day: 'Friday\'s',
+            desc: `special is Cold Brew Coffee!`
+        };
+    break;
+    case 6:
+    coffee = {
+            pic: 'https://images.unsplash.com/photo-1492158244976-29b84ba93025?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2167&q=80',
+            alt: 'Espresso',
+            name: 'Expresso',
+            color: 'orange',
+            day: 'Saturday\'s',
+            desc: `special is Expresso!`
+        };
+    break;   
+}
+
+    function coffeeTemplate(obj) {
+        return `<div class="coffee" style="display: flex; flex-direction: column; background-color: rgb(62,62,62); justify-content: center; align-items: center; padding: 20px;">
+        <h1 style="color:${obj.color}">${obj.name}</h1>
+        <p><img src="${obj.pic}" alt="${obj.alt}" style="width: 600px; box-shadow: 0px 0px 13px 2px rgba(0,0,0,0.63); margin: 20px"/></p>
+        <h1 style="color: whitesmoke;">${obj.day} ${obj.desc}</h1>
+    </div>`;
+    }
+
+    let coffeeOutput = coffeeTemplate(coffee);
+    document.getElementById('output').innerHTML = coffeeOutput;
+</script>
+</html>

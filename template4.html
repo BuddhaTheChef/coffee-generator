@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page Title</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+    <h1>Template 4</h1>
+    <span id="output"></span>
+    <!-- <div class="coffee">
+        <h2 style="color: coral;">Pumpkin Spice</h2>
+        <p><img src="https://picsum.photos/id/431/300" alt="Pumpkin Spice"/></p>
+        <p>Tuesday's special is Pumpkin Spice! Not one of the Spice Girls!</p>
+    </div> -->
+</body>
+<script>
+    let coffee = {
+        pic: 'https://picsum.photos/id/431/300',
+        alt: 'Pumkin Spice',
+        name: 'Pumpkin Spice',
+        color: 'coral',
+        day: 'Tuesday',
+        desc: `special is Pumpkin Spice! Not one of the Spice Girls!`
+    };
+
+    function coffeeTemplate(obj) {
+        return `<div class="coffee">
+        <h2 style="color:${obj.color}">${obj.name}</h2>
+        <p><img src="${obj.pic}" alt="${obj.alt}"/></p>
+        <p>${obj.day} ${obj.desc}</p>
+    </div>`;
+    }
+
+    let coffeeOutput = coffeeTemplate(coffee);
+    document.getElementById('output').innerHTML = coffeeOutput;
+</script>
+</html>
