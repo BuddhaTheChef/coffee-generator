@@ -2,11 +2,12 @@
 <html>
 <head>
     <title>Starlucks Coffee</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"/>
 </head>
 <body style="background-color: rgb(37,37,37)">
-    <h1 style="color: whitesmoke; text-align: center; margin-top: 70px;">Starlucks Coffee</h1>
-    <div style="display: flex; align-items: center; justify-content: space-around; width: 70%; margin: 65px auto 50px auto;">
+    <h1 style="color: whitesmoke; text-align: center; margin-top: 70px;">STARLUCKS COFFEE</h1>
+    <div style="display: flex; align-items: center; justify-content: space-around; width: 70%; margin: 45px auto 0px auto; height: 30px;">
+    <p><button type="button" class="btn btn-primary"><a href="?" style="color: white; text-decoration: none;">Today's Special</a></button></p>
     <p><button type="button" class="btn btn-success"><a href="?myDay=0" style="color: white; text-decoration: none;">Sunday Special</a></button></p>
     <p><button type="button" class="btn btn-success"><a href="?myDay=1" style="color: white; text-decoration: none;">Monday Special</a></button></p>
     <p><button type="button" class="btn btn-success"><a href="?myDay=2" style="color: white; text-decoration: none;">Tuesday Special</a></button></p>
@@ -14,7 +15,11 @@
     <p><button type="button" class="btn btn-success"><a href="?myDay=4" style="color: white; text-decoration: none;">Thursday Special</a></button></p>
     <p><button type="button" class="btn btn-success"><a href="?myDay=5" style="color: white; text-decoration: none;">Friday Special</a></button></p>
     <p><button type="button" class="btn btn-success"><a href="?myDay=6" style="color: white; text-decoration: none;">Saturday Special</a></button></p>
-    <p><button type="button" class="btn btn-success"><a href="?" style="color: white; text-decoration: none;">Today's Special</a></button></p>
+</div>
+
+<div style="display: flex; align-items: center; justify-content: center; width: 70%; margin: 25px auto 20px auto;">
+    <p><button type="button" class="btn btn-danger" style="margin-right: 9px;"><a href="?myMonth=7" style="color: white; text-decoration: none;">Thanksgiving Special</a></button></p>
+    <p><button type="button" class="btn btn-danger" style="margin-left: 10px;"><a href="?myMonth=8" style="color: white; text-decoration: none;">Christmas Special</a></button></p>
 </div>
 
     <span id="output"></span>
@@ -23,7 +28,8 @@
 
     let coffee = '';
     let myDate = new Date();
-    let myDay = myDate.getDay();
+    let myDay = '';
+
 
     console.log(myDay)
 
@@ -39,30 +45,17 @@ const urlParams = new URLSearchParams(queryString);
 console.log(urlParams);
 
 if(urlParams.has('myDay')) {
-    let myColor = urlParams.get('myDay');
-    if(myColor == 0) {
-        alert('Sunday\'s special is Pumkin Spice')
-    }
-    if(myColor == 1) {
-        alert('Monday\'s special is Mocha')
-    }
-    else if(myColor == 2) {
-        alert('Tuesday\'s special is Dark Chocolate Latté')
-    }
-    else if(myColor == 3) {
-        alert('Wednesday\'s special is Americanó')
-    }
-    else if(myColor == 4) {
-        alert('Thursday\'s special is Carmel Machiatto')
-    }
-    else if(myColor == 5) {
-        alert('Friday\'s special is Cold Brew Coffee')
-    }
-    else if(myColor == 6) {
-        alert('Saturday\'s special is Espresso')
-    }
-} else {
-    alert('Today\'s special is listed below' )
+    myDay = urlParams.get('myDay');
+    myDay = parseInt(myDay);
+    
+
+}
+else if(urlParams.has('myMonth')) {
+    myDay = urlParams.get('myMonth');
+    myDay = parseInt(myDay);
+}
+else {
+    myDay = myDate.getDay();
 }
 
 
@@ -137,6 +130,26 @@ switch(myDay) {
             desc: `special is Expresso!`
         };
     break;   
+    case 7:
+    coffee = {
+            pic: 'https://images.unsplash.com/photo-1562962537-a2948ab1958d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2167&q=80',
+            alt: 'Espresso',
+            name: 'Thanksgiving Special',
+            color: 'orange',
+            day: 'Thanksgiving\'s',
+            desc: `special is Pumpkin Spice!`
+        };
+    break; 
+    case 8:
+    coffee = {
+            pic: 'https://images.unsplash.com/photo-1461010083959-8a5727311252?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2211&q=80',
+            alt: 'Espresso',
+            name: 'Christmas Special',
+            color: 'green',
+            day: 'Christmas\'s',
+            desc: `special is Peppermint Mocha!`
+        };
+    break; 
 }
 
     function coffeeTemplate(obj) {
